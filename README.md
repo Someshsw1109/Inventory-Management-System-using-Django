@@ -1,9 +1,3 @@
-<p align="center">
-  <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fpremium-vector%2Fweather-infographic-line-climate-forecast-banner-with-rain-sunny-cold-day-elements-clouds-sky-moon-icons-precipitation-cloudiness-prediction-vector-meteorology-background_33099939.htm&psig=AOvVaw2MkwMPrTj5Qa60n1F8LWEi&ust=1721297430172000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMjzn-HqrYcDFQAAAAAdAAAAABAE" 
-target="blank"><img src="READMEImages/repo_banner.png" width="500" alt="Repo Banner" /></a>
-</p>
-
-
 This is a Django-based web application designed to manage the inventory and sales for a small business that sells handmade crafts and art supplies. The application provides functionalities to track inventory levels, process sales, and generate reports.
 
 **The application is live here: [Demo link]().** The project is hosted on [PythonAnywhere](https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/) ❤️🐍
