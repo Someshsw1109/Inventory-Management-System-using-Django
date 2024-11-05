@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<style>
+    .register-container {
+        max-width: 500px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .register-title {
+        color: #3b82f6;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    .form-control {
+        border-radius: 4px;
+    }
+    .btn-success {
+        background-color: #10b981;
+        border-color: #10b981;
+        transition: all 0.3s ease;
+    }
+    .btn-success:hover {
+        background-color: #059669;
+        border-color: #059669;
+        transform: translateY(-2px);
+    }
+</style>
+
+<div class="register-container">
+    <h2 class="register-title">Register</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success btn-block">Register</button>
+    </form>
+</div>
+{% endblock %}

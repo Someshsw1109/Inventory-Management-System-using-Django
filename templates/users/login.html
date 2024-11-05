@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<style>
+    .login-container {
+        max-width: 400px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .login-title {
+        color: #3b82f6;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    .form-control {
+        border-radius: 4px;
+    }
+    .btn-primary {
+        background-color: #3b82f6;
+        border-color: #3b82f6;
+        transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+        background-color: #2563eb;
+        border-color: #2563eb;
+        transform: translateY(-2px);
+    }
+    .btn-secondary {
+        background-color: #9ca3af;
+        border-color: #9ca3af;
+        transition: all 0.3s ease;
+    }
+    .btn-secondary:hover {
+        background-color: #6b7280;
+        border-color: #6b7280;
+        transform: translateY(-2px);
+    }
+</style>
+
+<div class="login-container">
+    <h2 class="login-title">Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
+
+    <p class="mt-3 text-center">
+        <a href="{% url 'register' %}" class="btn btn-secondary btn-block">Register</a>
+    </p>
+</div>
+{% endblock %}

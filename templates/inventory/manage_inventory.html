@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}Manage Inventory{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #f3f4f6;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    .card {
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    h1, h2 {
+        font-weight: 700;
+        color: #3b82f6;
+    }
+    .list-group-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.2s ease-in-out;
+    }
+    .list-group-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    .badge {
+        font-size: 0.875rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 9999px;
+    }
+    .badge-success { background-color: #10b981; color: white; }
+    .badge-warning { background-color: #f59e0b; color: white; }
+    .badge-danger { background-color: #ef4444; color: white; }
+    .btn-primary {
+        background-color: #3b82f6;
+        border-color: #3b82f6;
+        transition: background-color 0.2s;
+    }
+    .btn-primary:hover {
+        background-color: #2563eb;
+        border-color: #2563eb;
+    }
+</style>
+
+<div class="container mt-4">
+    <h1 class="mb-4">Manage Inventory</h1>
+
+    <div class="card">
+        <h2 class="mb-3">Add/Update Product</h2>
+        <form method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <div class="card mt-4">
+        <h2 class="mb-3">Products</h2>
+        <ul class="list-group">
+            {% for product in products %}
+                <li class="list-group-item">
+                    <span>{{ product.name }}</span>
+                    <span class="badge {% if product.stock > 100 %}badge-success{% elif product.stock > 50 %}badge-warning{% else %}badge-danger{% endif %}">
+                        {{ product.stock }} in stock
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card mt-4">
+        <h2 class="mb-3">Transactions</h2>
+        <ul class="list-group">
+            {% for transaction in transactions %}
+                <li class="list-group-item">
+                    <span>{{ transaction.date|date:"F j, Y, g:i a" }}</span>
+                    <span>
+                        {{ transaction.transaction_type }} {{ transaction.quantity }} of {{ transaction.product.name }}
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% if messages %}
+        <div class="mt-4">
+            <div class="alert alert-info" role="alert">
+                <ul class="mb-0">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
