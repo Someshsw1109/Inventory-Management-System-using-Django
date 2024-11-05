@@ -1,6 +1,6 @@
 This is a Django-based web application designed to manage the inventory and sales for a small business that sells handmade crafts and art supplies. The application provides functionalities to track inventory levels, process sales, and generate reports.
 
-**The application is live here: [Demo link]().** The project is hosted on [PythonAnywhere](https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/) ❤️🐍
+**The application is live here: [Demo link](https://inventory-management-system-using-django-2z6w-43oijxls1.vercel.app/users/login/).** The project is hosted on [Vercel](https://vercel.com/) ❤️🐍
 
 ## Features
 
